@@ -124,11 +124,6 @@ body.light .filter-section-title {
     font-weight: 400;
     color: #DEDEDE;
     border: 1px solid #3A3A3A;
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8' fill='none'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23DEDEDE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
 }
 
 .filter-select option {
