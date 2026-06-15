@@ -1,0 +1,282 @@
+.filter-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+body.dark .filter-btn {
+    background: #1A1818;
+}
+
+body.light .filter-btn {
+    background: #FFFFFF;
+    border: 1px solid #D0D0D0;
+}
+
+.filter-icon {
+    width: 24px;
+    height: 24px;
+
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4 6H20M6 12H18M10 18H14' stroke='%23DEDEDE' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+}
+
+body.light .filter-icon {
+    background-color: #666666;
+}
+
+.filter-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 492px;
+    height: 100vh;
+    background: #1A1A1A;;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+body.light .filter-overlay {
+    background: #FFFFFF;
+    border-left: 1px solid #E0E0E0;
+}
+
+.filter-overlay.open {
+    transform: translateX(0);
+}
+
+.filter-close {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 60px;
+    top: 40px;
+    cursor: pointer;
+}
+
+.filter-close::before,
+.filter-close::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 1.4px;
+    background: #DEDEDE;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.filter-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+body.light .filter-close::before,
+body.light .filter-close::after {
+    background: #1A1A1A;
+}
+
+.filter-content {
+    padding: 80px 60px 60px 60px;
+}
+
+.filter-section {
+    margin-bottom: 32px;
+}
+
+.filter-section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.filter-section-title {
+    font-family: 'Cormorant SC', serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+body.light .filter-section-title {
+    color: #1A1A1A;
+}
+
+/* ============================================ */
+/* СТИЛИ ДЛЯ ВЫПАДАЮЩИХ СПИСКОВ (select)        */
+/* ============================================ */
+
+.filter-select {
+    width: 100%;
+    background:#1A1A1A;;
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #DEDEDE;
+    border: 1px solid #3A3A3A;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8' fill='none'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23DEDEDE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+/* Стили для опций внутри select */
+.filter-select option {
+    background: #1A1A1A;;
+    color: #ffffff;
+    padding: 12px;
+}
+
+
+/* ============================================ */
+/* СВЕТЛАЯ ТЕМА ДЛЯ ВЫПАДАЮЩИХ СПИСКОВ           */
+/* ============================================ */
+
+body.light .filter-select {
+    background: #ffffff;
+    color: #1A1A1A;
+    border-color: #D0D0D0;
+    
+}
+
+body.light .filter-select option {
+    background: #FFFFFF;
+    color: #1A1A1A;
+}
+
+body.light .filter-select:hover,
+body.light .filter-select:focus {
+    border-color: #1A1A1A;
+}
+
+/* ============================================ */
+/* СТИЛИ ДЛЯ ПОЛЕЙ ГОДОВ (year-input)           */
+/* ============================================ */
+
+.years-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.year-input {
+    flex: 1;
+    background:#1A1A1A;;
+    border-radius: 4px;
+    padding: 12px 16px;
+    border: 1px solid #3A3A3A;
+}
+
+body.light .year-input {
+    border-color: #DEDEDE;
+    background-color: transparent;
+}
+
+.year-input input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    
+    outline: none;
+}
+
+body.light .year-input input {
+    color: #1A1A1A;
+}
+
+.year-input input::placeholder {
+    color: #DEDEDE;
+}
+
+body.light .year-input input::placeholder {
+    color: #1A1A1A;
+}
+
+/* Убираем стрелки у number input */
+.year-input input[type="number"]::-webkit-inner-spin-button,
+.year-input input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.year-dash {
+    color: #DEDEDE;
+    font-size: 16px;
+}
+
+
+
+/* ============================================ */
+/* СТИЛИ ДЛЯ КНОПОК                             */
+/* ============================================ */
+
+.filter-buttons {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+}
+
+.show-btn {
+    flex: 1;
+    background: transparent;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 4px;
+}
+
+
+.show-btn span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #DEDEDE;
+}
+
+.show-btn:hover {
+    background: rgba(167, 167, 167, 0.1);
+} 
+
+body.light .show-btn span {
+    color: #010101;
+}
+
+.clear-btn {
+    flex: 1;
+    background: transparent;
+    padding: 14px 24px;
+    border-radius: 4px;
+    border: none;
+}
+
+.clear-btn span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #DEDEDE;
+}
+body.light .clear-btn span {
+    color: #010101;
+}
+
+.clear-btn:hover {
+    background: rgba(167, 167, 167, 0.1);
+}
