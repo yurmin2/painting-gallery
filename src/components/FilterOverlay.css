@@ -26,7 +26,7 @@ body.light .filter-btn {
 .filter-icon {
     width: 24px;
     height: 24px;
-
+    background: #DEDEDE;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4 6H20M6 12H18M10 18H14' stroke='%23DEDEDE' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
     mask-size: contain;
 }
@@ -36,12 +36,14 @@ body.light .filter-icon {
 }
 
 .filter-overlay {
+    box-sizing: border-box;
+    max-width: 100%;
     position: fixed;
     top: 0;
     right: 0;
     width: 492px;
     height: 100vh;
-    background: #1A1A1A;;
+    background: #121212;
     z-index: 1000;
     transform: translateX(100%);
     transition: transform 0.3s ease;
@@ -82,10 +84,6 @@ body.light .filter-overlay {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-body.light .filter-close::before,
-body.light .filter-close::after {
-    background: #1A1A1A;
-}
 
 .filter-content {
     padding: 80px 60px 60px 60px;
@@ -114,9 +112,10 @@ body.light .filter-section-title {
     color: #1A1A1A;
 }
 
+
 .filter-select {
     width: 100%;
-    background:#1A1A1A;;
+    background: transparent;
     border-radius: 4px;
     padding: 12px 16px;
     font-family: 'Inter', sans-serif;
@@ -124,16 +123,28 @@ body.light .filter-section-title {
     font-weight: 400;
     color: #DEDEDE;
     border: 1px solid #3A3A3A;
+    cursor: pointer;
+    appearance: none;
+    
 }
 
 .filter-select option {
-    background: #1A1A1A;;
-    color: #ffffff;
+    background: transparent;
+    color: #DEDEDE;
     padding: 12px;
 }
 
+.filter-select:hover {
+    border-color: #ffffff;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
 body.light .filter-select {
-    background: #ffffff;
+    background: transparent;
     color: #1A1A1A;
     border-color: #D0D0D0;
     
@@ -149,6 +160,10 @@ body.light .filter-select:focus {
     border-color: #1A1A1A;
 }
 
+/* ============================================ */
+/* СТИЛИ ДЛЯ ПОЛЕЙ ГОДОВ (year-input)           */
+/* ============================================ */
+
 .years-row {
     display: flex;
     gap: 16px;
@@ -157,24 +172,24 @@ body.light .filter-select:focus {
 
 .year-input {
     flex: 1;
-    background:#1A1A1A;;
+    background: transparent;
     border-radius: 4px;
     padding: 12px 16px;
     border: 1px solid #3A3A3A;
 }
 
 body.light .year-input {
-    border-color: #DEDEDE;
-    background-color: transparent;
+    background: transparent;
+    border-color: #D0D0D0;
 }
 
 .year-input input {
-    background-color: transparent;
+    background: transparent;
     border: none;
     width: 100%;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
-    
+    color: #DEDEDE;
     outline: none;
 }
 
@@ -210,32 +225,40 @@ body.light .year-input input::placeholder {
 .show-btn {
     flex: 1;
     background: transparent;
-    padding: 14px 24px;
     border: none;
+    padding: 14px 24px;
+    cursor: pointer;
     border-radius: 4px;
+    transition: background 0.2s;
 }
-
 
 .show-btn span {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
     color: #DEDEDE;
 }
 
-.show-btn:hover {
-    background: rgba(167, 167, 167, 0.1);
-} 
+body.light .show-btn span, body.dark .show-btn span:hover {
+    color: #DEDEDE;
+}
 
-body.light .show-btn span {
-    color: #010101;
+body.light .show-btn span:hover {
+    color: #1A1A1A;
+}
+body.dark .show-btn span:hover {
+    color: #ffffff;
 }
 
 .clear-btn {
     flex: 1;
     background: transparent;
     padding: 14px 24px;
+    cursor: pointer;
     border-radius: 4px;
+    transition: all 0.2s;
     border: none;
 }
 
@@ -247,13 +270,19 @@ body.light .show-btn span {
     text-transform: uppercase;
     color: #DEDEDE;
 }
-body.light .clear-btn span {
-    color: #010101;
+
+body.light .clear-btn span, body.dark .clear-btn span {
+    color: #DEDEDE;
 }
 
-.clear-btn:hover {
-    background: rgba(167, 167, 167, 0.1);
+body.light .clear-btn span:hover {
+    color: #1A1A1A;
 }
+
+body.dark .clear-btn span:hover {
+    color: #ffffff;
+}
+
 
 @media (max-width: 1024px) and (min-width: 769px) {
     .filter-overlay {
@@ -269,6 +298,7 @@ body.light .clear-btn span {
         top: 30px;
     }
 }
+
 
 @media (max-width: 768px) {
     .filter-overlay {
@@ -298,7 +328,6 @@ body.light .clear-btn span {
         width: 100%;
         padding: 12px 14px;
         font-size: 14px;
-        background-position: right 12px center;
         box-sizing: border-box;
     }
     
@@ -343,6 +372,7 @@ body.light .clear-btn span {
         top: 20px;
     }
 }
+
 
 @media (max-width: 380px) {
     .filter-content {
